@@ -1,17 +1,20 @@
+import { Link, useParams} from 'react-router-dom'; 
+
 function ProductListingPage() {
+  const { category } = useParams();
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    // Fetch product data
-    fetch('https://fakestoreapi.com/products')
-      .then(response => response.json())
-      .then(data => setProducts(data))
-      .catch(error => console.error('Error fetching products:', error));
-  }, []);
+    fetch(`https://fakestoreapi.com/products/category/${category}`)
+      .then(res => res.json())
+      .then(json => setProducts(json))
+      .catch(error => console.error(error));
+  }, [category]);
 
   return (
-    <div className="product-listing-page">
-      {/* Product list and filtering/pagination */}
+    <div>
+      <h1>Products in {category}</h1>
+      {/* Render your product list here using the "products" state */}
     </div>
   );
 }
