@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill, } from 'react-icons/bs';
+import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 import Slider1 from '../assets/Slider1.jpg';
 import Slider2 from '../assets/Slider2.jpg';
 import Slider3 from '../assets/Slider3.jpg';
 
-function App() {
+function SliderSection() {
   const slides = [
     { url: Slider1 },
     { url: Slider2 },
@@ -31,19 +31,19 @@ function App() {
   };
 
   return (
-    <div className='max-w-[1120px] h-[579px] m-auto px-20 relative group'>
+    <div className='margin-10 max-w-[1120px] m-auto px-20 relative group'>
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-        className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
+        className='w-full h-[500px] rounded-2xl bg-center bg-cover duration-500'
       ></div>
       {/* Left Arrow */}
-      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
+      <button className='absolute top-1/2 -translate-y-1/2 left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer focus:outline-none'>
         <BsFillArrowLeftCircleFill onClick={prevSlide} size={30} />
-      </div>
+      </button>
       {/* Right Arrow */}
-      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
+      <button className='absolute top-1/2 -translate-y-1/2 right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer focus:outline-none'>
         <BsFillArrowRightCircleFill onClick={nextSlide} size={30} />
-      </div>
+      </button>
       <div className='flex top-4 justify-center py-2'>
         {slides.map((slideIndex) => (
           <div
@@ -55,8 +55,6 @@ function App() {
           </div>
         ))}
       </div>
-
-      {/* Added the description text here */}
       <div className="flex flex-row justify-between gap-x-24 h-fit w-fit max-w-full">
         <p className="font-poppins font-medium text-6xl text-left leading-74 text-custom-black">Purely Distinct <span className='text-custom-blue'>/</span> Purely Superior<span className='text-custom-blue'>.</span></p>
         <p className="font-popins font-semibold text-xl text-right leading-6 text-custom-black"><span className='text-custom-blue'>Purely Distinct</span> is a gift and decorations store based in <span className='text-custom-blue'>Struga, Macedonia.</span> Established in 2024.</p>
@@ -65,4 +63,4 @@ function App() {
   );
 }
 
-export default App;
+export default SliderSection;
