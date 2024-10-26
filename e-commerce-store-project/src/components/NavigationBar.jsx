@@ -21,11 +21,13 @@ function NavigationBar() {
     fetchCategories();
   }, []);
 
+  const HOME_LINK_KEY = 'home'; 
+
   return (
     <nav className="flex items-center justify-between px-4 py-2 bg-white">
       <div className="w-32 h-6 text-custom-blue bg-white font-poppins text-2xl font-semibold leading-6 text-center pl-3;">UrbanNest</div>
       <ul className="gap-x-10 text-transform: capitalize flex items-center justify-between text-custom-grey bg-white font-space-grotesk text-sm font-medium leading-6 text-left">
-      <li key="home" className="hover:text-custom-blue">
+      <li key={HOME_LINK_KEY} className="hover:text-custom-blue">
     <Link to="/">Home</Link>
     </li>
         {categories.map((category) => (
