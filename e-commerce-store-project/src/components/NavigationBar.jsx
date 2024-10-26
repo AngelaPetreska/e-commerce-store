@@ -29,7 +29,7 @@ function NavigationBar() {
     <Link to="/">Home</Link>
     </li>
         {categories.map((category) => (
-          <li key={category} className="hover:text-custom-blue">
+          <li key={category.id} className="hover:text-custom-blue">
             <Link to={`/products/${category}`}>{category}</Link>
           </li>
         ))}
