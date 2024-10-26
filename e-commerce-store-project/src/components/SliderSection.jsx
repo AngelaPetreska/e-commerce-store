@@ -7,9 +7,9 @@ import Slider3 from '../assets/Slider3.jpg';
 
 function SliderSection() {
   const slides = [
-    { url: Slider1 },
-    { url: Slider2 },
-    { url: Slider3 },
+    { id: 1, url: Slider1 }, // Assuming slides have a unique 'id' property
+    { id: 2, url: Slider2 },
+    { id: 3, url: Slider3 },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -45,10 +45,10 @@ function SliderSection() {
         <BsFillArrowRightCircleFill onClick={nextSlide} size={30} />
       </button>
       <div className='flex top-4 justify-center py-2'>
-        {slides.map((slideIndex) => (
+        {slides.map((slide) => (
           <div
-            key={slideIndex}
-            onClick={() => goToSlide(slideIndex)}
+            key={slide.id} // Key based on unique slide ID
+            onClick={() => goToSlide(slide.index)} // Use slide index for goToSlide
             className='text-2xl cursor-pointer'
           >
             <RxDotFilled />
