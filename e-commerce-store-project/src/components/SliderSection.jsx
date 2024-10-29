@@ -7,7 +7,7 @@ import Slider3 from '../assets/Slider3.jpg';
 
 function SliderSection() {
   const slides = [
-    { id: 1, url: Slider1 }, // Assuming slides have a unique 'id' property
+    { id: 1, url: Slider1 }, 
     { id: 2, url: Slider2 },
     { id: 3, url: Slider3 },
   ];
