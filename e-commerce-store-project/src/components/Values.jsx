@@ -29,7 +29,7 @@ const Values = () => {
   ];
 
   return (
-    <div className="flex justify-center items-center gap-5">
+    <div className="flex justify-center items-center gap-5 py-10">
       {features.map((feature, index) => (
         <ValuesCard key={index} {...feature} />
       ))}
