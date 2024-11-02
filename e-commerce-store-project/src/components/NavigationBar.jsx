@@ -35,11 +35,12 @@ function NavigationBar() {
             <Link to={`/products/${category}`}>{category}</Link>
           </li>
         ))}
+        <Link to="/contact-us">Contact Us</Link>
       </ul>
       <div className="flex flex-row items-center gap-x-4">
-      <SearchIcon />
-      <UserIcon />
-      <CartIcon />
+      <button><SearchIcon /></button>
+      <Link to="/account"><button><UserIcon /></button></Link>
+      <button><CartIcon /></button>
       </div>
     </nav>
   );
