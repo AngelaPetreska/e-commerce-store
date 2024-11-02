@@ -1,65 +1,158 @@
 import React, { useState } from 'react';
+import NavigationBar from './NavigationBar';
+import Footer from './Footer';
+import Avatar from '../assets/Avatar.svg?react';
 
-function AccountPage() {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    displayName: '',
-    email: '',
-    oldPassword: '',
-    newPassword: '',
-    confirmPassword: '',
-  });
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+function AccountDetails() {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [displayName, setDisplayName] = useState('');
+  const [email, setEmail] = useState('');
+  const [oldPassword, setOldPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here (e.g., API calls, validation)
-    console.log(formData);
+    // Handle form submission logic here
+    console.log('Form submitted:', {
+      firstName,
+      lastName,
+      displayName,
+      email,
+      oldPassword,
+      newPassword,
+      confirmPassword,
+    });
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen">
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex flex-col md:flex-row">
-          <div className="md:w-1/3">
-            <div className="flex items-center mb-4">
-              <img src="https://via.placeholder.com/150" alt="Profile Picture" className="w-24 h-24 rounded-full mr-4" />
-              <h1 className="text-2xl font-bold">Sophia Collins</h1>
-            </div>
-            <ul className="list-none">
-              <li className="mb-2"><a href="#" className="text-gray-700 hover:text-blue-500">Account</a></li>
-              <li className="mb-2"><a href="#" className="text-gray-700 hover:text-blue-500">Address</a></li>
-              <li className="mb-2"><a href="#" className="text-gray-700 hover:text-blue-500">Wishlist</a></li>
-              <li><a href="#" className="text-gray-700 hover:text-blue-500">Log Out</a></li>
-            </ul>
-          </div>
-
-          <div className="md:w-2/3 md:ml-8">
-            <h2 className="text-xl font-bold mb-4">Account Details</h2>
-            <form onSubmit={handleSubmit}>
-              <div className="mb-4">
-                <label htmlFor="firstName" className="block text-gray-700 text-sm font-bold mb-2">First Name</label>
-                <input type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-              </div>
-
-              {/* Similar input fields for last name, display name, email, old password, new password, and confirm password */}
-
-              <div className="mb-4">
-                <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save Changes</button>
-              </div>
-            </form>
-          </div>
+    <div>
+        <NavigationBar />
+        <h1 className='my-10 text-black font-poppins text-4xl font-medium leading-tight tracking-tighter text-center'>My Account</h1>
+        
+    <div className="bg-gray-100 p-8 rounded shadow-md flex flex-col md:flex-row md:space-x-4">
+      
+      <div className="md:w-1/2">
+        {/* Add the left-side content here, including the image and navigation links */}
+        <div className="flex flex-col items-center">
+          <Avatar className="mt-5 w-24 h-24 rounded-full mb-4"/>
+          <h2 className="mb-10 font-inter text-xl font-bold leading-8 text-left">Sophia Collins</h2>
+          <ul className='font-inter text-base font-semibold leading-7 text-left mb-2'>
+            <li className="w-52 border-b-2 border-black">Account</li>
+            <li className="my-5 text-gray-600">Address</li>
+            <li className="my-5 text-gray-600">Wishlist</li>
+            <li className="my-5 text-gray-600">Log Out</li>
+          </ul>
         </div>
       </div>
+      <div className="flex-grow md:w-1/2">
+        <h2 className="text-2xl font-bold mb-4">Account Details</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
+              First Name
+            </label>
+            <input
+              type="text"
+              id="firstName"
+              className="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              placeholder="Enter your first name"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">
+              Last Name
+            </label>
+            <input
+              type="text"
+              id="lastName"
+              className="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              placeholder="Enter your last name"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="displayName" className="block text-sm font-medium text-gray-700">
+              Display Name
+            </label>
+            <input
+              type="text"
+              id="displayName"
+              className="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              value={displayName}
+              onChange={(e) => setDisplayName(e.target.value)}
+              placeholder="Enter your display name"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              className="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email address"
+            />
+          </div>
+          <h2 className="text-2xl font-bold mb-4">Password</h2>
+          <div className="mb-4">
+            <label htmlFor="oldPassword" className="block text-sm font-medium text-gray-700">
+              Old Password
+            </label>
+            <input
+              type="password"
+              id="oldPassword"
+              className="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              value={oldPassword}
+              onChange={(e) => setOldPassword(e.target.value)}
+              placeholder="Enter your old password"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="newPassword" className="block text-sm font-medium text-gray-700">
+              New Password
+            </label>
+            <input
+              type="password"
+              id="newPassword"
+              className="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              placeholder="Enter your new password"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
+              Confirm New Password
+            </label>
+            <input
+              type="password"
+              id="confirmPassword"
+              className="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder="Confirm your new password"
+            />
+          </div>
+          <button
+            type="submit"
+            className="bg-custom-blue hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Save Changes
+          </button>
+        </form>
+      </div>
+    </div>
+    <Footer />
     </div>
   );
 }
 
-export default AccountPage;
+export default AccountDetails;
