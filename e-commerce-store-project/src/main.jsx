@@ -6,7 +6,6 @@ import HomePage from "./components/HomePage.jsx";
 import ProductPage from "./components/ProductPage.jsx";
 import ProductListingPage from "./components/ProductListingPage.jsx";
 import ContactUsPage from "./components/ContactUsPage.jsx";
-import CheckoutPage from "./components/CheckoutPage.jsx";
 
 const router = createBrowserRouter([
   // Route config for root path ("/")
@@ -25,10 +24,6 @@ const router = createBrowserRouter([
   {
     path: "/contact-us",
     element: <ContactUsPage />,
-  },
-  {
-    path: "/checkout",
-    element: <CheckoutPage/>,
   },
 ]);
 
