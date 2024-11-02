@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import NavigationBar from "./NavigationBar";
 
 function ProductPage() {
@@ -7,6 +7,7 @@ function ProductPage() {
   const [product, setProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState('S'); // Default selected size
   const [quantity, setQuantity] = useState(1);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch product data based on productId
@@ -50,9 +51,9 @@ function ProductPage() {
             <div className="mt-10 flex space-x-4 text-base font-normal leading-5 ">
               <p className="w-20 h-10 py-2">Size </p>
               <button className="px-4 py-2 border-2 border-gray-400 rounded disabled cursor-default">XS</button>
-              <button className={`px-4 py-2 border-2 border-gray-600 rounded text-grey-800 ' ${selectedSize === 'S' ? 'active' : ''}`} onClick={() => handleSizeChange('S')}>S</button>
-              <button className={`px-4 py-2 border-2 border-gray-600 rounded text-grey-800 ' ${selectedSize === 'M' ? 'active' : ''}`} onClick={() => handleSizeChange('M')}>M</button>
-              <button className={`px-4 py-2 border-2 border-gray-600 rounded text-grey-800 ' ${selectedSize === 'L' ? 'active' : ''}`} onClick={() => handleSizeChange('L')}>L</button>
+              <button className={`px-4 py-2 border-2 border-gray-600 rounded text-grey-800 ${selectedSize === 'S' ? 'bg-blue-500 text-white' : 'hover:bg-gray-300 hover:text-gray-900'} ${selectedSize === 'S' ? 'active' : ''}`} onClick={() => handleSizeChange('S')}>S</button>
+              <button className={`px-4 py-2 border-2 border-gray-600 rounded text-grey-800 ${selectedSize === 'M' ? 'bg-blue-500 text-white' : 'hover:bg-gray-300 hover:text-gray-900'} ${selectedSize === 'M' ? 'active' : ''}`} onClick={() => handleSizeChange('M')}>M</button>
+              <button className={`px-4 py-2 border-2 border-gray-600 rounded text-grey-800 ${selectedSize === 'L' ? 'bg-blue-500 text-white' : 'hover:bg-gray-300 hover:text-gray-900'} ${selectedSize === 'L' ? 'active' : ''}`} onClick={() => handleSizeChange('L')}>L</button>
               <button className="px-4 py-2 border-2 border-gray-400 rounded text-gray-700 disabled cursor-default">XL</button>
             </div>
             {/* Shipping section*/}
@@ -72,8 +73,8 @@ function ProductPage() {
                 </div>
               </div>
               <div className="mt-5 flex space-x-4">
-                <button className="w-48 h-15 px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200">Buy Now</button>
-                <button className="w-48 h-15 px-4 py-2 bg-white text-gray-700 border-2 border-gray-600 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-200">Add to Cart</button>
+              <button className="w-48 h-15 px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200" onClick={() => navigate('/checkout', { state: { product: product } })}>Buy Now</button>
+              <button className="w-48 h-15 px-4 py-2 bg-white text-gray-700 border-2 border-gray-600 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-200">Add to Cart</button>
               </div>
             </div>
           </div>
