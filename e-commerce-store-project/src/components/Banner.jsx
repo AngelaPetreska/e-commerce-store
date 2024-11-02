@@ -7,7 +7,7 @@ const BannerSection = () => {
   const { category } = useParams();
 
   return (
-    <section className="bg-gray-100">
+    <section className="bg-[#F3F5F7]">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2">
