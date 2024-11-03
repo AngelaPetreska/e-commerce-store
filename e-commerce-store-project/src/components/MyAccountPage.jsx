@@ -10,7 +10,7 @@ function AccountDetails() {
   const [email, setEmail] = useState('');
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [repeatPassword, setRepeatPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +21,7 @@ function AccountDetails() {
       email,
       oldPassword,
       newPassword,
-      confirmPassword,
+      repeatPassword,
     });
   };
 
@@ -50,7 +50,7 @@ function AccountDetails() {
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
-              First Name
+              FIRST NAME *
             </label>
             <input
               type="text"
@@ -63,7 +63,7 @@ function AccountDetails() {
           </div>
           <div className="mb-4">
             <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">
-              Last Name
+              LAST NAME *
             </label>
             <input
               type="text"
@@ -76,7 +76,7 @@ function AccountDetails() {
           </div>
           <div className="mb-4">
             <label htmlFor="displayName" className="block text-sm font-medium text-gray-700">
-              Display Name
+              DISPLAY NAME *
             </label>
             <input
               type="text"
@@ -86,10 +86,11 @@ function AccountDetails() {
               onChange={(e) => setDisplayName(e.target.value)}
               placeholder="Enter your display name"
             />
+            <p className='mt-3 block text-xs font-medium text-gray-700'>This will be how your name will be displayed in the account section and in reviews</p>
           </div>
           <div className="mb-4">
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-              Email
+              EMAIL *
             </label>
             <input
               type="email"
@@ -103,7 +104,7 @@ function AccountDetails() {
           <h2 className="text-2xl font-bold mb-4">Password</h2>
           <div className="mb-4">
             <label htmlFor="oldPassword" className="block text-sm font-medium text-gray-700">
-              Old Password
+              OLD PASSWORD
             </label>
             <input
               type="password"
@@ -116,7 +117,7 @@ function AccountDetails() {
           </div>
           <div className="mb-4">
             <label htmlFor="newPassword" className="block text-sm font-medium text-gray-700">
-              New Password
+              NEW PASSWORD
             </label>
             <input
               type="password"
@@ -128,16 +129,16 @@ function AccountDetails() {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
-              Confirm New Password
+            <label htmlFor="repeatPassword" className="block text-sm font-medium text-gray-700">
+              REPEAT NEW PASSWORD
             </label>
             <input
               type="password"
-              id="confirmPassword"
+              id="repeatPassword"
               className="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              placeholder="Confirm your new password"
+              value={repeatPassword}
+              onChange={(e) => setRepeatPassword(e.target.value)}
+              placeholder="Repeat your new password"
             />
           </div>
           <button
