@@ -1,7 +1,7 @@
+import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faStarHalfAlt, faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
 import StarRating from './StarRating';
 import ArrowRight from '../assets/arrow-right.svg?react';
 
@@ -47,16 +47,15 @@ const Products = () => {
                     <Link to={`/products/${product.id}`}>
                       <img src={product.image} alt={product.title} className="mx-auto w-30 h-48 " />
                     </Link>
-                    <div className="p-4">
+                    <div className="p-4 flex flex-col items-left">
                       <Link to={`/products/${product.id}`}>
                         <h4 className="text-lg text-custom-black font-medium font-poppins">{product.category.charAt(0).toUpperCase() + product.category.slice(1)}</h4>
-                        <p className="text-base font-medium text-custom-grey font-poppins">{product.title}</p>
-                      </Link>
-                      <div className="flex mt-2 mr-8 font-poppins">
-                        <p className="text-base font-medium text-custom-grey font-poppins">{product.title}</p>
+                     </Link>
+                      <div className="flex items-center mt-2 mr-8 font-poppins">
+                      <p className="text-left text-base font-medium text-custom-grey font-poppins">{product.title.split(' ').slice(0, 3).join(' ')}</p>
                         <FontAwesomeIcon
                           icon={favorites.includes(product.id) ? faHeart : faHeartBroken}
-                          className="text-custom-blue mr-2"
+                          className="text-2xl text-custom-blue"
                           onClick={() => toggleFavorite(product.id)}
                         />
                       </div>
