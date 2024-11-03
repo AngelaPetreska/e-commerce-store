@@ -38,9 +38,9 @@ function NavigationBar() {
       <Link to="/contact-us">Contact Us</Link>
       </ul>
       <div className="flex flex-row items-center gap-x-4">
-      <SearchIcon />
-      <UserIcon />
-      <CartIcon />
+      <button><SearchIcon /></button>
+      <Link to="/account"><button className='mt-2'><UserIcon /></button></Link>
+      <button><CartIcon /></button>
       </div>
     </nav>
   );
