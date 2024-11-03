@@ -1,7 +1,7 @@
+import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faStarHalfAlt, faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
 import StarRating from './StarRating';
 import ArrowRight from '../assets/arrow-right.svg?react';
 
@@ -31,7 +31,7 @@ const Products = () => {
     <section>
       <div className="text-center mb-8">
         <div className="flex justify-between text-center mb-8">
-          <h3 className="text-4xl font-semibold leading-10 text-black text-left w-96 mr-64 ml-10">New Arrivals</h3>
+          <h3 className="text-4xl font-semibold leading-10 text-black text-left w-40 mr-64 ml-10">New Arrivals</h3>
           <Link to="/products/women's%20clothing" className="e-96 flex mt-2">
             <span className="flex flex-row items-center gap-1 text-base font-medium text-black ml-80 mr-10 w-[150px] align-text-bottom">More Products<ArrowRight/></span>
           </Link>
@@ -47,16 +47,15 @@ const Products = () => {
                     <Link to={`/products/${product.id}`}>
                       <img src={product.image} alt={product.title} className="mx-auto w-30 h-48 " />
                     </Link>
-                    <div className="p-4">
+                    <div className="p-4 flex flex-col items-left">
                       <Link to={`/products/${product.id}`}>
                         <h4 className="text-lg text-custom-black font-medium font-poppins">{product.category.charAt(0).toUpperCase() + product.category.slice(1)}</h4>
-                        <p className="text-base font-medium text-custom-grey font-poppins">{product.title}</p>
-                      </Link>
-                      <div className="flex mt-2 mr-8 font-poppins">
-                        <p className="text-base font-medium text-custom-grey font-poppins">{product.title}</p>
+                     </Link>
+                      <div className="flex items-center mt-2 mr-8 font-poppins">
+                      <p className="text-left text-base font-medium text-custom-grey font-poppins">{product.title.split(' ').slice(0, 3).join(' ')}</p>
                         <FontAwesomeIcon
                           icon={favorites.includes(product.id) ? faHeart : faHeartBroken}
-                          className="text-custom-blue mr-2"
+                          className="text-2xl text-custom-blue"
                           onClick={() => toggleFavorite(product.id)}
                         />
                       </div>

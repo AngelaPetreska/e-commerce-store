@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import NavigationBar from "./NavigationBar";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons';
+
 
 function ProductPage() {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState('S'); // Default selected size
   const [quantity, setQuantity] = useState(1);
+  const [favorites, setFavorites] = useState([]);
   const navigate = useNavigate();
+  
 
   useEffect(() => {
     // Fetch product data based on productId
@@ -29,6 +34,14 @@ function ProductPage() {
     setQuantity(Math.max(1, quantity + change));
   };
 
+  const toggleFavorite = (productId) => {
+    if (favorites.includes(productId)) {
+      setFavorites(favorites.filter((id) => id !== productId));
+    } else {
+      setFavorites([...favorites, productId]);
+    }
+  };
+
   return (
     <div>
       <NavigationBar />
@@ -43,7 +56,14 @@ function ProductPage() {
           <div className="text-center md:text-left p-0">
             <h2 className=" mt-5 text-[#262626] text-2xl font-extrabold uppercase tracking-tight leading-6">{product.title}</h2>
             <h2 className=" mt-5 text-xl font-medium leading-7 text-gray-[#262626] mb-0">Price: ${product.price}</h2>
+            <div className='flex flex-row gap-3'>
             <p className="mt-5 text-xl font-medium leading-7 text-gray-[#262626] mb-0">Description: <span className='text-base'>The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.</span></p>
+            <FontAwesomeIcon
+                          icon={favorites.includes(product.id) ? faHeart : faHeartBroken}
+                          className="text-xl text-gray-400"
+                          onClick={() => toggleFavorite(product.id)}
+                        />
+            </div>
           </div>
 
           {/* Size section */}
