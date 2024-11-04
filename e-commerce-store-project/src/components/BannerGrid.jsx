@@ -8,7 +8,7 @@ function BannerGrid() {
     <div className="m-10 grid grid-cols-2 gap-4">
       <div className="col-span-1 row-span-2">
         <Link to="/products/category/jewelery">
-          <img src={BannerGrid1} alt="Banner Grid 1" className="w-full h-full object-cover" />
+          <img src={BannerGrid1} alt="Banner Grid 1" className="pb-5 w-full h-full object-cover" />
         </Link>
       </div>
       <div className="col-span-1 row-span-1">
@@ -18,7 +18,7 @@ function BannerGrid() {
       </div>
       <div className="col-span-1 row-span-1">
         <Link to="/products/category/women's%20clothing">
-          <img src={BannerGrid3} alt="Banner Grid 3" className="pb-3 w-full h-full object-cover" />
+          <img src={BannerGrid3} alt="Banner Grid 3" className="object-fit" />
         </Link>
       </div>
     </div>
