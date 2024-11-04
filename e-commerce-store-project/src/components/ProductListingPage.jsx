@@ -4,7 +4,7 @@ import NavigationBar from './NavigationBar';
 import Newsletter from './Newsletter';
 import Footer from './Footer';
 import ProductCard from './ProductCard'; 
-
+ 
 function ProductListingPage() {
   const [products, setProducts] = useState([]);
   const { category } = useParams();
