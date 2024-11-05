@@ -42,12 +42,12 @@ function NavigationBar() {
               </ul>
               <div className="flex flex-row items-center gap-x-4">
                 <button><SearchIcon /></button>
-                 <Link to="/account"><button className='mt-2'><UserIcon /></button></Link>
+                <Link to="/account"><button className='mt-2'><UserIcon /></button></Link>
                  <button><CartIcon /></button>
-                 </div>
-                 </nav>
-                 );
-                };
+                  </div>
+                   </nav>
+                   );
+                  }
 
 
 
