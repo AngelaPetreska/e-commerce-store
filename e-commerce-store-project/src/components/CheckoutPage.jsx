@@ -1,4 +1,4 @@
-// import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import NavigationBar from './NavigationBar';
 import Footer from './Footer';
 import useCartStore from '../store/cartStore'; // Import the store
@@ -9,6 +9,7 @@ function CheckoutPage() {
   return (
     <div className="checkout-page">
       <NavigationBar />
+
       {cartItems.map((item) => (
         <div key={item.id} className="product-item">
           <p>{item.product.title}</p>

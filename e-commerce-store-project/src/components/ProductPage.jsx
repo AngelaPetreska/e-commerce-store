@@ -3,7 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import NavigationBar from './NavigationBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons';
-import useCartStore from '../store/cartStore';
 
 function ProductPage() {
   const { productId } = useParams();
