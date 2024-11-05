@@ -9,7 +9,6 @@ function CheckoutPage() {
   return (
     <div className="checkout-page">
       <NavigationBar />
-
       {cartItems.map((item) => (
         <div key={item.id} className="product-item">
           <p>{item.product.title}</p>
@@ -37,4 +36,3 @@ export default CheckoutPage;
 // <p className="total-price">Total Price: ${product.price * quantity}</p>
 // {/* Add CARD ICON section */}
 // <Footer />
-
