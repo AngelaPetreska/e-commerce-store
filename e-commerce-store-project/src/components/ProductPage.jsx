@@ -4,7 +4,6 @@ import NavigationBar from "./NavigationBar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons';
 
-
 function ProductPage() {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
@@ -12,7 +11,6 @@ function ProductPage() {
   const [quantity, setQuantity] = useState(1);
   const [favorites, setFavorites] = useState([]);
   const navigate = useNavigate();
-  
 
   useEffect(() => {
     // Fetch product data based on productId
@@ -57,12 +55,12 @@ function ProductPage() {
             <h2 className=" mt-5 text-[#262626] text-2xl font-extrabold uppercase tracking-tight leading-6">{product.title}</h2>
             <h2 className=" mt-5 text-xl font-medium leading-7 text-gray-[#262626] mb-0">Price: ${product.price}</h2>
             <div className='flex flex-row gap-3'>
-            <p className="mt-5 text-xl font-medium leading-7 text-gray-[#262626] mb-0">Description: <span className='text-base'>The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.</span></p>
-            <FontAwesomeIcon
-                          icon={favorites.includes(product.id) ? faHeart : faHeartBroken}
-                          className="text-xl text-gray-400"
-                          onClick={() => toggleFavorite(product.id)}
-                        />
+              <p className="mt-5 text-xl font-medium leading-7 text-gray-[#262626] mb-0">Description: <span className='text-base'>The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.</span></p>
+              <FontAwesomeIcon
+                icon={favorites.includes(product.id) ? faHeart : faHeartBroken}
+                className="text-xl text-gray-400"
+                onClick={() => toggleFavorite(product.id)}
+              />
             </div>
           </div>
 
@@ -93,8 +91,17 @@ function ProductPage() {
                 </div>
               </div>
               <div className="mt-5 flex space-x-4">
-              <button className="w-48 h-15 px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200" onClick={() => navigate('/checkout', { state: { product: product } })}>Buy Now</button>
-              <button className="w-48 h-15 px-4 py-2 bg-white text-gray-700 border-2 border-gray-600 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-200">Add to Cart</button>
+                <button
+                  className="w-48 h-15 px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                  onClick={() =>
+                    navigate('/checkout', {
+                      state: { product: product, size: selectedSize, quantity: quantity },
+                    })
+                  }
+                >
+                  Buy Now
+                </button>
+                <button className="w-48 h-15 px-4 py-2 bg-white text-gray-700 border-2 border-gray-600 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-200">Add to Cart</button>
               </div>
             </div>
           </div>
