@@ -9,7 +9,6 @@ function CheckoutPage() {
   return (
     <div className="checkout-page">
       <NavigationBar />
-
       {cartItems.map((item) => (
         <div key={item.id} className="product-item">
           <p>{item.product.title}</p>
