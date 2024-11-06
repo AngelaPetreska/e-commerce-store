@@ -109,19 +109,19 @@ function ProductPage() {
                   </div>
                 </div>
                 <div className="mt-5 flex space-x-4">
-                <button
-              className="w-48 h-15 px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200"
-              onClick={handleBuyNow}
-            >
-              Buy Now
-            </button>
-            <button
-              className="w-48 h-15 px-4 py-2 bg-white text-gray-700 border-2 border-gray-600 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-200"
-              onClick={handleAddToCart}
-            >
-              Add to Cart
-            </button>
-                   </div>
+                  <button
+                    className="w-48 h-15 px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                    onClick={handleBuyNow}
+                  >
+                    Buy Now
+                  </button>
+                  <button
+                    className="w-48 h-15 px-4 py-2 bg-white text-gray-700 border-2 border-gray-600 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                    onClick={handleAddToCart}
+                  >
+                    Add to Cart
+                  </button>
+                </div>
               </div>
             </div>
           </div>

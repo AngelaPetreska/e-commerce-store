@@ -23,7 +23,7 @@ function CheckoutPage() {
       {/* Checkout Content */}
       <div className="container mx-auto mt-4 mb-8">
         <h1 className="text-2xl font-bold mb-4">
-          Card <span className='text-custom-blue'>{numberOfProducts}</span>
+          Card ({numberOfProducts})
         </h1> {/* Display "Card" and number of products */}
 
         <div className="grid grid-cols-1 gap-4">
@@ -74,10 +74,4 @@ function calculateTotal(items) {
 }
 
 export default CheckoutPage;
-
-// <p className="shipping">Shipping: $0.00</p>
-// <p className="tax">Tax: $0.00</p>
-// <p className="total-price">Total Price: ${product.price * quantity}</p>
-// {/* Add CARD ICON section */}
-// <Footer />
 
