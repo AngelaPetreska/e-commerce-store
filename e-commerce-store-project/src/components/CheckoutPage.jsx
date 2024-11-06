@@ -80,4 +80,3 @@ export default CheckoutPage;
 // <p className="total-price">Total Price: ${product.price * quantity}</p>
 // {/* Add CARD ICON section */}
 // <Footer />
-
