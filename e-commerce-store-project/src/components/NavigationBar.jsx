@@ -43,7 +43,7 @@ function NavigationBar() {
               <div className="flex flex-row items-center gap-x-4">
                 <button><SearchIcon /></button>
                 <Link to="/account"><button className='mt-2'><UserIcon /></button></Link>
-                <Link to="/checkout"><button><CartIcon /></button></Link>
+                <Link to="/checkout"><button className='mt-2'><CartIcon /></button></Link>
                   </div>
                    </nav>
                    );

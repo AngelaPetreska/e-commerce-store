@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+import {create}  from 'zustand'; 
 
 const useCartStore = create((set) => ({
   cartItems: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [],

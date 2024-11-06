@@ -75,3 +75,8 @@ function calculateTotal(items) {
 
 export default CheckoutPage;
 
+// <p className="shipping">Shipping: $0.00</p>
+// <p className="tax">Tax: $0.00</p>
+// <p className="total-price">Total Price: ${product.price * quantity}</p>
+// {/* Add CARD ICON section */}
+// <Footer />
