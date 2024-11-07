@@ -3,7 +3,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import NavigationBar from './NavigationBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons';
+import AddToCart from '../assets/AddToCart.svg';
 import useCartStore from '../store/cartStore';
+
 
 function ProductPage() {
   const { productId } = useParams();
@@ -116,9 +118,10 @@ function ProductPage() {
                     Buy Now
                   </button>
                   <button
-                    className="w-48 h-15 px-4 py-2 bg-white text-gray-700 border-2 border-gray-600 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                    className="flex justify-center w-48 h-15 px-4 py-2 bg-white text-gray-700 border-2 border-gray-600 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-200"
                     onClick={handleAddToCart}
                   >
+                    <img src={AddToCart} alt="Cart Icon" className="mr-2" />
                     Add to Cart
                   </button>
                 </div>
