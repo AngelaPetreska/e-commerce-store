@@ -9,6 +9,10 @@ export default {
         'custom-grey': '#6C7275',
         'custom-red': '#FF0000',
       },
+      fontFamily: {
+        lato: ['Lato', 'sans-serif'], 
+        poppins: ['Poppins', 'sans-serif'],
+      },
     },
   },
   plugins: [

@@ -42,10 +42,10 @@ function CheckoutPage() {
           <div className="flex-grow">
             <div className="grid grid-cols-1 gap-4">
               {cartItems.map((item) => (
-                <div key={item.id} className="flex items-center border-b border-gray-200 py-4">
-                  <img src={item.product.image} alt={item.product.title} className="w-24 h-24 mr-4" />
+                <div key={item.id} className="flex items-center py-4">
+                  <img src={item.product.image} alt={item.product.title} className="border border-white rounded-[10px] w-24 h-24 mr-4" />
                   <div className="flex-1">
-                    <h2 className="text-lg font-semibold">{item.product.title}</h2>
+                    <h2 className="text-lg font-lato text-[14px] font-bold leading-[20px] text-left">{item.product.title}</h2>
                     <p className="text-gray-600">Size: {item.size}</p>
                   </div>
                   <div className="flex items-center">

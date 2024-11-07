@@ -38,7 +38,7 @@ function ContactUsPage() {
         <h1>We believe in sustainable fashion.</h1>
         <h2>We're passionate about style that empowers you.</h2>
         </div>
-        <p className='font-inter text-custom-black text-base leading-relaxed w-[834px] h-[78px]'>Our collection features timeless fashion, with natural fabrics, elegant silhouettes, and classic designs that can elevate any wardrobe. Each piece enchants with its sophistication, made to last for generations, blending the essence of past eras with a modern touch.</p>
+        <p className='font-inter text-custom-black text-base leading-relaxed w-[824px] h-[78px]'>Our collection features timeless fashion, with natural fabrics, elegant silhouettes, and classic designs that can elevate any wardrobe. Each piece enchants with its sophistication, made to last for generations, blending the essence of past eras with a modern touch.</p>
       </div>
 
       <div className="my-5 flex flex-col md:flex-row">
