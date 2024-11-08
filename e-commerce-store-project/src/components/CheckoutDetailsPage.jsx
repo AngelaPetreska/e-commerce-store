@@ -1,5 +1,11 @@
 import { useNavigate } from 'react-router-dom';
+import NavigationBar from './NavigationBar';
+import Footer from './Footer';
 import NavigationCheckoutBar from './NavigationCheckoutBar';
+import ContactForm from '../components/ContactForm';
+import ShippingAddressForm from './ShippingAddressForm';
+import PaymentMethod from './PaymentMethod';
+import OrderSummary from './OrderSummary';
 
 function CheckoutDetailsPage() {
   const navigate = useNavigate();
@@ -16,19 +22,34 @@ function CheckoutDetailsPage() {
   };
 
   return (
-    <div className=''>
-      <div className='flex flex-row gap-8'>
+    <div> 
+    <div className="flex flex-col mx-16">
+      <NavigationBar />
       <NavigationCheckoutBar activeStep={activeStep} steps={steps} />
-      {/* CONTENT */}
-      </div>
-      <div className="mt-8 flex justify-end">
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+
+      <div className="flex mt-8">
+        <div className="flex-1 mr-8">
+          <ContactForm />
+          
+          <div className="mt-8">  
+            <PaymentMethod />
+            <div className="mt-8">  
+            <ShippingAddressForm />
+            <button
+          className="items-center bg-custom-blue hover:bg-blue-700 text-white w-full h-12 rounded-md mt-4 mb-20"
           onClick={handlePlaceOrder}
         >
           Place Order
         </button>
+          </div>
+          </div>
+        </div>
+        <div >
+        <OrderSummary/>
+        </div>
       </div>
+    </div>
+    <Footer />
     </div>
   );
 }
