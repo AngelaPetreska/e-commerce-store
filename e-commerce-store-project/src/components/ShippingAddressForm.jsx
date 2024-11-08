@@ -29,11 +29,11 @@ function ShippingAddressForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-gray-200 p-8 rounded shadow-md">
-      <h2 className="text-xl font-bold mb-4">Shipping Address</h2>
+    <form onSubmit={handleSubmit} className="border-2 border-gray-300 rounded-md flex flex-col space-y-4 bg-white p-8">
+      <h2 className="mb-4 font-poppins text-2xl font-medium leading-7 text-left">Shipping Address</h2>
 
-      <div>
-        <label htmlFor="streetAddress" className="block text-sm font-medium text-gray-700">
+      <div className="flex flex-col space-y-2">
+        <label htmlFor="streetAddress" className="uppercase font-inter text-xs font-bold leading-3 text-[#6C7275]">
           Street Address*
         </label>
         <input
@@ -42,13 +42,14 @@ function ShippingAddressForm() {
           name="streetAddress"
           value={formData.streetAddress}
           onChange={handleChange}
-          className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          className="mt-1 px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           required
+          placeholder="Enter your street address"
         />
       </div>
 
-      <div>
-        <label htmlFor="country" className="block text-sm font-medium text-gray-700">
+      <div className="flex flex-col space-y-2">
+        <label htmlFor="country" className="uppercase font-inter text-xs font-bold leading-3 text-[#6C7275]">
           Country*
         </label>
         <select
@@ -56,7 +57,7 @@ function ShippingAddressForm() {
           name="country"
           value={formData.country}
           onChange={handleChange}
-          className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          className="mt-1 px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           required
         >
           <option value="">Select a country</option>
@@ -67,8 +68,8 @@ function ShippingAddressForm() {
         </select>
       </div>
 
-      <div>
-        <label htmlFor="townCity" className="block text-sm font-medium text-gray-700">
+      <div className="flex flex-col space-y-2">
+        <label htmlFor="townCity" className="uppercase font-inter text-xs font-bold leading-3 text-[#6C7275]">
           Town / City*
         </label>
         <input
@@ -77,13 +78,14 @@ function ShippingAddressForm() {
           name="townCity"
           value={formData.townCity}
           onChange={handleChange}
-          className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          className="mt-1 px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           required
+          placeholder="Enter your town or city"
         />
       </div>
 
-      <div>
-        <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700">
+      <div className="flex flex-col space-y-2">
+        <label htmlFor="zipCode" className="uppercase font-inter text-xs font-bold leading-3 text-[#6C7275]">
           Zip Code
         </label>
         <input
@@ -92,16 +94,10 @@ function ShippingAddressForm() {
           name="zipCode"
           value={formData.zipCode}
           onChange={handleChange}
-          className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          className="mt-1 px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          placeholder="Enter your zip code"
         />
       </div>
-
-      <button
-        type="submit"
-        className="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded"
-      >
-        Submit
-      </button>
     </form>
   );
 }

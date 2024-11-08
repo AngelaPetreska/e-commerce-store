@@ -9,13 +9,13 @@ const NavigationCheckoutBar = ({ activeStep, steps }) => {
   const isOrderCompletePage = location.pathname === '/order-complete';
 
   return (
-    <div className="flex justify-center items-center bg-gray-100 py-4">
-      <ul className="flex space-x-4">
+    <div className="flex justify-center items-center bg-white py-4 gap-4">
+      <ul className="flex space-x-12">
         {steps.map((step, index) => (
           <li key={step.title} className="flex items-center">
             <span className="text-lg font-semibold">{step.title}</span>
             {index < activeStep ? (
-              <CheckMark className="w-6 h-6 text-green-500" />
+              <CheckMark className="ml-2 w-6 h-6 text-green-500" />
             ) : (
               <div>
                 {index === 1 && (
