@@ -1,5 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import NavigationCheckoutBar from './NavigationCheckoutBar';
+import ContactForm from '../components/ContactForm';
+import ShippingAddressForm from './ShippingAddressForm';
+import PaymentMethod from './PaymentMethod';
+
 
 function CheckoutDetailsPage() {
   const navigate = useNavigate();
@@ -19,7 +23,26 @@ function CheckoutDetailsPage() {
     <div className=''>
       <div className='flex flex-row gap-8'>
       <NavigationCheckoutBar activeStep={activeStep} steps={steps} />
-      {/* CONTENT */}
+      
+      <div className='CONTENT'>
+
+        <div className='CONTENT - LEFT '>
+
+          <div>
+          <ContactForm />
+          <ShippingAddressForm />
+          <PaymentMethod />
+          </div>
+
+        </div>
+
+        <div className=' CONTENT - RIGHT'>
+
+        </div>
+
+      </div>
+
+
       </div>
       <div className="mt-8 flex justify-end">
         <button
