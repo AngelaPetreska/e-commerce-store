@@ -3,6 +3,7 @@ import NavigationCheckoutBar from './NavigationCheckoutBar';
 import ContactForm from '../components/ContactForm';
 import ShippingAddressForm from './ShippingAddressForm';
 import PaymentMethod from './PaymentMethod';
+import OrderSummary from './OrderSummary';
 
 
 function CheckoutDetailsPage() {
@@ -24,9 +25,9 @@ function CheckoutDetailsPage() {
       <div className='flex flex-row gap-8'>
       <NavigationCheckoutBar activeStep={activeStep} steps={steps} />
       
-      <div className='CONTENT'>
+      <div className=''>
 
-        <div className='CONTENT - LEFT '>
+        <div className=''>
 
           <div>
           <ContactForm />
@@ -36,8 +37,8 @@ function CheckoutDetailsPage() {
 
         </div>
 
-        <div className=' CONTENT - RIGHT'>
-
+        <div className=' '>
+        <OrderSummary />
         </div>
 
       </div>
