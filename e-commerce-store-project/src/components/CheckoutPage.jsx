@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import NavigationBar from './NavigationBar';
 import Footer from './Footer';
 import useCartStore from '../store/cartStore';
@@ -9,6 +10,8 @@ import MasterCardLogo from '../assets/MasterCardLogo.svg';
 import PayPalLogo from '../assets/PayPalLogo.svg';
 
 function CheckoutPage() {
+
+  const navigate = useNavigate();
   const { cartItems, removeFromCart, updateCartItemQuantity } = useCartStore();
 
   // Local state to manage quantity for each item
@@ -96,9 +99,13 @@ function CheckoutPage() {
           </div>
         </div>
         <div className='flex justify-end pr-6'> 
-        <button className="w-[180px] flex justify-center bg-custom-blue hover:bg-blue-600 text-white py-2 px-4 rounded mt-4 mr-10 text-sm font-medium uppercase text-right font-lato">
-              <img src={CheckoutIcon} alt="Checkout Icon" className="mr-2" />
-              Checkout</button>
+        <button
+  className="w-[180px] flex justify-center bg-custom-blue hover:bg-blue-600 text-white py-2 px-4 rounded mt-4 mr-10 text-sm font-medium uppercase text-right font-lato"
+  onClick={() => navigate('/checkout-details')} // Navigate to CheckoutDetailsPage
+>
+  <img src={CheckoutIcon} alt="Checkout Icon" className="mr-2" />
+  Checkout
+</button>
         </div>
         <div className='flex justify-end pr-6 border-b border-gray-300 gap-6 mt-8 mb-12 pb-4 '> 
         <img src={VisaLogo} alt="Visa Icon" className="mr-2" />
@@ -107,12 +114,6 @@ function CheckoutPage() {
         </div>
 
       </div>
-
-      {/* Add CARD ICON section (replace with your implementation) */}
-      {/* <div className="card-icon-section">
-        {/* Your card icon implementation here 
-      </div> */}
-
       <Footer />
     </div>
   );
