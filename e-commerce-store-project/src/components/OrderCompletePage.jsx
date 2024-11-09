@@ -3,9 +3,9 @@ import NavigationCheckoutBar from './NavigationCheckoutBar';
 import stepThreeDone from '../assets/stepThreeDone.svg';
 import NavigationBar from './NavigationBar';
 import Footer from './Footer';
-import useCartStore from '../store/cartStore'; 
+import useCartStore from '../store/cartStore';
 
-function OrderCompletePage({}) {
+function OrderCompletePage() {
   const activeStep = 2;
 
   const steps = [
@@ -14,85 +14,70 @@ function OrderCompletePage({}) {
     { title: 'Order Complete', link: '/order-complete' },
   ];
 
-  const cartStore = useCartStore(); // Access cart data from the store
+  const { cartItems } = useCartStore();
 
-  const [productDetails, setProductDetails] = useState([]);
+  const calculateTotal = (items) => {
+    return items.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
+  };
+
+  const total = calculateTotal(cartItems);
+
+  const [orderCode, setOrderCode] = useState('');
+  const [orderDate, setOrderDate] = useState('');
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null);
+  const [isLoadingPaymentMethod, setIsLoadingPaymentMethod] = useState(true);
 
   useEffect(() => {
-    const fetchProductDetails = async (productId) => {
-      // Replace with your actual API call or data fetching logic
-      const response = await fetch(`/api/products/${productId}`);
-      const productData = await response.json();
-      return productData;
-    };
+    const currentDate = new Date().toLocaleDateString();
+    setOrderDate(currentDate);
+    setOrderCode(generateRandomOrderCode());
 
-    const fetchData = async () => {
-      const details = [];
-      for (const item of cartStore.cartItems) {
-        const productData = await fetchProductDetails(item.id);
-        details.push({ ...item, ...productData });
-      }
-      setProductDetails(details);
-    };
+    const storedPaymentMethod = localStorage.getItem('selectedPaymentMethod');
+    if (storedPaymentMethod) {
+      setSelectedPaymentMethod(JSON.parse(storedPaymentMethod));
+      console.log(storedPaymentMethod)
+    }
+    setIsLoadingPaymentMethod(false);
+  }, []);
 
-    fetchData();
-  }, [cartStore.cartItems]); // Re-run effect when cart changes
+  const generateRandomOrderCode = () => {
+    return Math.floor(Math.random() * 10000000);
+  };
 
   return (
     <div>
       <NavigationBar />
-      <p className='font-poppins text-4xl font-medium leading-tight tracking-tighter text-center'> Complete! </p>
+      <p className="font-poppins text-4xl font-medium leading-tight tracking-tighter text-center"> Complete! </p>
       <NavigationCheckoutBar
         activeStep={activeStep}
         steps={steps}
         stepThreeIcon={stepThreeDone}
       />
-      <div className="flex flex-col mx-16">
+      
+      <div className='flex justify-center'>
+      <div className="py-16 w-3/5 mx-14 my-14 shadow-[0px_20px_20px_10px_#00000024]">
+        <h1 className="text-3xl font-bold leading-tight tracking-tighter text-center text-custom-grey"> Thank you! 🎉 </h1>
+        <div className="mt-8">
+          <p className="font-poppins text-3xl font-medium leading-tight tracking-normal text-center text-[#22637E]">Your order has been received</p>
+          <div className="mt-8 bg-white  flex flex-row justify-center gap-4">
+  <ul className="flex flex-col items-center gap-2 list-none font-inter text-sm font-semibold leading-7 text-left text-custom-grey">
+    <li>Order</li>
+    <li>Date:</li>
+    <li>Total:</li>
+    <li>Payment Method:</li>
+  </ul>
+  <ul className="flex flex-col items-center gap-2 list-none text-custom-black font-inter text-sm font-semibold leading-7 text-left ">
+    <li>{orderCode}</li>
+    <li>{orderDate}</li>
+    <li>${total.toFixed(2)}</li>
+    <li>{isLoadingPaymentMethod ? 'Loading...' : selectedPaymentMethod?.name ? selectedPaymentMethod.name : 'Credit Card / PayPal'}</li>
+  </ul>
+</div>
+  </div>
+      </div>
+      </div>
 
-
-        <div className="container mx-auto mt-8">
-          <p className="text-gray-600 mb-4"> Thank you! 🎉</p>
-          <h1 className="text-2xl font-bold mb-4">Your order has been received</h1>
-
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="flex-1 bg-gray-100 p-4 rounded-md shadow-sm">
-              <h2 className="text-lg font-bold mb-4">Order Summary</h2>
-              <ul>
-                {productDetails.map((item) => (
-                  <li key={item.id}>
-                    {item.quantity} x {item.title} - ${item.price * item.quantity}
-                  </li>
-                ))}
-              </ul>
-              <p className="font-bold">Total: ${cartStore.cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0)}</p>
-            </div>
-
-            <div className="flex-1 bg-gray-100 p-4 rounded-md shadow-sm">
-              <h2 className="text-lg font-bold mb-4">Contact Information</h2>
-              {/* Access contact information from CheckoutDetailsPage (implementation needed) */}
-              <p>Name: {/* Display contact name from CheckoutDetailsPage */}</p>
-              <p>Phone: {/* Display contact phone number from CheckoutDetailsPage */}</p>
-              <p>Email: {/* Display contact email from CheckoutDetailsPage */}</p>
-            </div>
-
-            <div className="flex-1 bg-gray-100 p-4 rounded-md shadow-sm">
-              <h2 className="text-lg font-bold mb-4">Shipping Address</h2>
-              {/* Access shipping address from CheckoutDetailsPage (implementation needed) */}
-              <p>Street: {/* Display shipping street address from CheckoutDetailsPage */}</p>
-              <p>City, State, Zip: {/* Display shipping city, state, and zip from CheckoutDetailsPage */}</p>
-              <p>Country: {/* Display shipping country from CheckoutDetailsPage */}</p>
-            </div>
-
-            <div className="flex-1 bg-gray-100 p-4 rounded-md shadow-sm">
-              <h2 className="text-lg font-bold mb-4">Payment Method</h2>
-              {/* Access payment method from CheckoutDetailsPage (implementation needed) */}
-              <p>Credit Card (Replace with actual payment method)</p>
-            </div>
-          </div>
-        </div>
-
-        <Footer/>
-    </div>
+      <Footer />
     </div>
   );
 }
