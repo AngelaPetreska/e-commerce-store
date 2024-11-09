@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import NavigationCheckoutBar from './NavigationCheckoutBar';
 import stepThreeDone from '../assets/stepThreeDone.svg';
 import NavigationBar from './NavigationBar';
@@ -8,84 +7,60 @@ import useCartStore from '../store/cartStore';
 
 function OrderCompletePage() {
   const activeStep = 2;
+
   const steps = [
     { title: 'Shopping Cart', link: '/checkout' },
     { title: 'Checkout Details', link: '/checkout-details' },
     { title: 'Order Complete', link: '/order-complete' },
   ];
 
-  const cartStore = useCartStore();
-  const [productDetails, setProductDetails] = useState([]);
-  const [orderData, setOrderData] = useState({
-    orderCode: '',
-    date: '',
-    paymentMethod: '',
-  });
-  const [total, setTotal] = useState(0);
+  const { cartItems} = useCartStore();
+
+  const calculateTotal = (items) => {
+    return items.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
+  };
+  
+  const total = calculateTotal(cartItems);
+  
+  // Generate order code and date
+  const [orderCode, setOrderCode] = useState('');
+  const [orderDate, setOrderDate] = useState('');
 
   useEffect(() => {
-    const fetchProductDetails = async (productId) => {
-      const response = await fetch(`/api/products/${productId}`);
-      const productData = await response.json();
-      return productData;
-    };
-
-    const fetchData = async () => {
-      const details = [];
-      for (const item of cartStore.cartItems) {
-        const productData = await fetchProductDetails(item.id);
-        details.push({ ...item, ...productData });
-      }
-      setProductDetails(details);
-
-      // Calculate the total price after setting productDetails
-      const calculatedTotal = details.reduce((acc, item) => acc + item.price * item.quantity, 0);
-      setTotal(calculatedTotal);
-    };
-
-    fetchData();
-  }, [cartStore.cartItems]);
-
-  useEffect(() => {
-    const fetchOrderDetails = async () => {
-      // Simulate fetching order details from backend (replace with actual API call)
-      const response = await new Promise((resolve) => resolve({
-        orderCode: 'ABC123',
-        date: new Date().toLocaleDateString(),
-        paymentMethod: 'Credit Card', // Replace with actual payment method from CheckoutDetailsPage
-      }));
-
-      setOrderData(response);
-    };
-
-    fetchOrderDetails();
+    // Generate locally:
+    const currentDate = new Date().toLocaleDateString();
+    setOrderDate(currentDate);
+    setOrderCode(generateRandomOrderCode());
   }, []);
+
+  // Implement your order code generation logic here
+  const generateRandomOrderCode = () => {
+    // For example, a random 8-digit code:
+    return Math.floor(Math.random() * 10000000);
+  };
 
   return (
     <div>
       <NavigationBar />
-      <p className="font-poppins text-4xl font-medium leading-tight tracking-tighter text-center">
-        Complete!
-      </p>
-      <NavigationCheckoutBar activeStep={activeStep} steps={steps} stepThreeIcon={stepThreeDone} />
-      <div className="flex flex-col mx-16">
-        <div className="container mx-auto mt-8">
-          <p className="text-gray-600 mb-4">Thank you! </p>
-          <h1 className="text-2xl font-bold mb-4">Your order has been received</h1>
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="flex-1 bg-gray-100 p-4 rounded-md shadow-sm">
-              <h2 className="text-lg font-bold mb-4">Order Information</h2>
-              <ul>
-                <li>Order Code: {orderData.orderCode}</li>
-                <li>Date: {orderData.date}</li>
-                <li>Payment Method: {orderData.paymentMethod}</li>
-                <li>Total Price: ${total.toFixed(2)}</li>
-              </ul>
-            </div>
-          </div>
+      <p className='font-poppins text-4xl font-medium leading-tight tracking-tighter text-center'> Complete! </p>
+      <NavigationCheckoutBar
+        activeStep={activeStep}
+        steps={steps}
+        stepThreeIcon={stepThreeDone}
+      />
+      <div className="container mx-auto py-16 px-4">
+        <h1 className="text-3xl font-bold leading-tight tracking-tighter text-center">Order Complete</h1>
+        <div className="mt-8 border rounded-lg p-4">
+          <p className="text-lg font-medium">Order Details</p>
+          <ul className="list-disc mt-4 ml-4">
+            <li>Order Code: {orderCode}</li>
+            <li>Date: {orderDate}</li>
+            <li>Total: ${total.toFixed(2)}</li>
+          </ul>
         </div>
       </div>
-      <Footer />
+
+      <Footer/>
     </div>
   );
 }
