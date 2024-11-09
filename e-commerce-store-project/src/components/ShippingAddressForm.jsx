@@ -61,10 +61,8 @@ function ShippingAddressForm() {
           required
         >
           <option value="">Select a country</option>
-          {/* Add country options here */}
           <option value="USA">USA</option>
           <option value="Canada">Canada</option>
-          {/* ... */}
         </select>
       </div>
 
