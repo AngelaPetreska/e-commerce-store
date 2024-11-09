@@ -3,8 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import NavigationBar from './NavigationBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons';
-import AddToCart from '../assets/AddToCart.svg';
 import useCartStore from '../store/cartStore';
+import AddToCart from '../assets/AddToCart.svg';
 
 
 function ProductPage() {
