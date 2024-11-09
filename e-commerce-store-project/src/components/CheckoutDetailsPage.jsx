@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 import NavigationBar from './NavigationBar';
 import Footer from './Footer';
 import NavigationCheckoutBar from './NavigationCheckoutBar';
@@ -20,6 +21,14 @@ function CheckoutDetailsPage() {
     navigate('/order-complete');
   };
 
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null);
+
+  const handlePaymentMethodSelect = (paymentMethod) => {
+    setSelectedPaymentMethod(paymentMethod);
+    const paymentMethodObject = { name: paymentMethod }; // Create an object with a name property
+    localStorage.setItem('selectedPaymentMethod', JSON.stringify(paymentMethodObject));
+  };
+
   return (
     <div>
       <div className="flex flex-col mx-16">
@@ -31,7 +40,7 @@ function CheckoutDetailsPage() {
           <div className="flex-1 mr-8">
             <ContactForm />
             <div className="mt-8">
-              <PaymentMethod />
+              <PaymentMethod onSelect={handlePaymentMethodSelect} />
               <div className="mt-8">
                 <ShippingAddressForm />
                 <button

@@ -5,7 +5,9 @@ function PaymentMethod() {
 
   const handlePaymentMethodChange = (event) => {
     setPaymentMethod(event.target.value);
+    onSelect(event.target.value); // Pass the selected value to the parent component
   };
+
 
   return (
     <div className="border-2 border-gray-300 rounded-md flex flex-col space-y-4 bg-white p-8">
