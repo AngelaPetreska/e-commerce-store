@@ -25,6 +25,7 @@ function CheckoutDetailsPage() {
     <div> 
     <div className="flex flex-col mx-16">
       <NavigationBar />
+      <p className='font-poppins text-4xl font-medium leading-tight tracking-tighter text-center'> Check Out</p>
       <NavigationCheckoutBar activeStep={activeStep} steps={steps} />
 
       <div className="flex mt-8">
