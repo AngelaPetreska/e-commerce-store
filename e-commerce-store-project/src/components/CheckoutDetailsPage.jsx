@@ -10,7 +10,6 @@ import OrderSummary from './OrderSummary';
 function CheckoutDetailsPage() {
   const navigate = useNavigate();
   const activeStep = 1;
-
   const steps = [
     { title: 'Shopping Cart', link: '/checkout' },
     { title: 'Checkout Details', link: '/checkout-details' },
@@ -22,35 +21,34 @@ function CheckoutDetailsPage() {
   };
 
   return (
-    <div> 
-    <div className="flex flex-col mx-16">
-      <NavigationBar />
-      <p className='font-poppins text-4xl font-medium leading-tight tracking-tighter text-center'> Check Out</p>
-      <NavigationCheckoutBar activeStep={activeStep} steps={steps} />
+    <div>
+      <div className="flex flex-col mx-16">
+        <NavigationBar />
+        <p className="font-poppins text-4xl font-medium leading-tight tracking-tighter text-center">Check Out</p>
+        <NavigationCheckoutBar activeStep={activeStep} steps={steps} />
 
-      <div className="flex mt-8">
-        <div className="flex-1 mr-8">
-          <ContactForm />
-          
-          <div className="mt-8">  
-            <PaymentMethod />
-            <div className="mt-8">  
-            <ShippingAddressForm />
-            <button
-          className="items-center bg-custom-blue hover:bg-blue-700 text-white w-full h-12 rounded-md mt-4 mb-20"
-          onClick={handlePlaceOrder}
-        >
-          Place Order
-        </button>
+        <div className="flex mt-8">
+          <div className="flex-1 mr-8">
+            <ContactForm />
+            <div className="mt-8">
+              <PaymentMethod />
+              <div className="mt-8">
+                <ShippingAddressForm />
+                <button
+                  className="items-center bg-custom-blue hover:bg-blue-700 text-white w-full h-12 rounded-md mt-4 mb-20"
+                  onClick={handlePlaceOrder}
+                >
+                  Place Order
+                </button>
+              </div>
+            </div>
           </div>
+          <div>
+            <OrderSummary />
           </div>
-        </div>
-        <div >
-        <OrderSummary/>
         </div>
       </div>
-    </div>
-    <Footer />
+      <Footer />
     </div>
   );
 }
