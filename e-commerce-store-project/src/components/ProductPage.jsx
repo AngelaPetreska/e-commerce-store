@@ -4,12 +4,13 @@ import NavigationBar from './NavigationBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons';
 import useCartStore from '../store/cartStore';
-import addToCartIcon from '../assets/addToCart.svg';
+import AddToCart from '../assets/AddToCart.svg';
+
 
 function ProductPage() {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
-  const [selectedSize, setSelectedSize] = useState('S'); 
+  const [selectedSize, setSelectedSize] = useState('S'); // Default selected size
   const [quantity, setQuantity] = useState(1);
   const [favorites, setFavorites] = useState([]);
   const navigate = useNavigate();
@@ -133,5 +134,4 @@ function ProductPage() {
   );
 }
 
-// onClick={() => navigate('/checkout', ; /product-detail
 export default ProductPage;
