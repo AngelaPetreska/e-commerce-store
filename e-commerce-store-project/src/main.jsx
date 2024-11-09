@@ -8,6 +8,8 @@ import ProductListingPage from "./components/ProductListingPage.jsx";
 import ContactUsPage from "./components/ContactUsPage.jsx";
 import MyAccountPage from "./components/MyAccountPage.jsx";
 import CheckoutPage from './components/CheckoutPage.jsx';
+import CheckoutDetailsPage from "./components/CheckoutDetailsPage.jsx";
+import OrderCompletePage from "./components/OrderCompletePage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
   {
     path: "/checkout",
     element: <CheckoutPage />,
+  },
+  {
+    path: "/checkout-details",
+    element: <CheckoutDetailsPage/>,
+  },
+  {
+    path: "/order-complete",
+    element: <OrderCompletePage/>,
   },
 ]);
 
