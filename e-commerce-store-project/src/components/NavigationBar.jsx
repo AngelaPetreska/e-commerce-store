@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 import SearchIcon from '../components/icons/SearchIcon';
 import UserIcon from '../components/icons/UserIcon';
 import CartIcon from '../components/icons/CartIcon';
-
+import useCartStore from '../store/cartStore'; 
+import Badge from '../components/Badge';
 
 async function getCategories() {
   const response = await fetch('https://fakestoreapi.com/products/categories');
@@ -13,6 +14,8 @@ async function getCategories() {
 
 function NavigationBar() {
   const [categories, setCategories] = useState([]);
+  const { cartItems } = useCartStore(); // Access cart items from the store
+
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -43,7 +46,11 @@ function NavigationBar() {
               <div className="flex flex-row items-center gap-x-4">
                 <button><SearchIcon /></button>
                 <Link to="/account"><button className='mt-2'><UserIcon /></button></Link>
-                <Link to="/checkout"><button className='mt-2'><CartIcon /></button></Link>
+                <Link to="/checkout"><button className='mt-2'><CartIcon />
+                {/* Conditionally render Badge component */}
+                {cartItems.length > 0 && (
+  <Badge count={cartItems.length} className="bg-custom-blue text-white px-1 rounded-full" />
+)} </button></Link>
                   </div>
                    </nav>
                    );

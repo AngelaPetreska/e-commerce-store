@@ -10,26 +10,26 @@ const NavigationCheckoutBar = ({ activeStep, steps }) => {
 
   return (
     <div className="flex justify-center items-center bg-white py-4 gap-4">
-      <ul className="flex space-x-12">
+      <ul className="flex space-x-4"> 
         {steps.map((step, index) => (
           <li key={step.title} className="flex items-center">
-            <span className="text-lg font-semibold">{step.title}</span>
             {index < activeStep ? (
-              <CheckMark className="ml-2 w-6 h-6 text-green-500" />
+              <CheckMark className="mr-2 w-6 h-6 text-green-500" /> 
             ) : (
               <div>
                 {index === 1 && (
-                  <img src={stepTwo} alt="Step 2 Icon" className="ml-2 w-6 h-6" />
+                  <img src={stepTwo} alt="Step 2 Icon" className="mr-2 w-6 h-6" /> 
                 )}
                 {index === 2 && (
                   <img
                     src={isOrderCompletePage ? stepThreeDone : stepThree}
                     alt="Step 3 Icon"
-                    className="ml-2 w-6 h-6"
+                    className="mr-2 w-6 h-6" 
                   />
                 )}
               </div>
             )}
+            <span className="text-lg font-semibold">{step.title}</span>
           </li>
         ))}
       </ul>

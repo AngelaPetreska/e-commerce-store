@@ -64,7 +64,7 @@ function ProductPage() {
       <div className="product-page px-20 grid grid-cols-1 md:grid-cols-12 gap-8">
         {/* Product Image */}
         <div className="product-image-container mx-20 my-40 md:col-span-6 overflow-hidden">
-          <img src={product.image} alt={product.title} className="w-full h-full object-cover" />
+          <img src={product.image} alt={product.title} className="w-full h-auto" />
         </div>
 
         {/* Product Details */}
