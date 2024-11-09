@@ -32,9 +32,9 @@ const Products = () => {
       <div className="text-center mb-8">
         <div className="flex justify-between text-center mb-8">
           <h3 className="text-4xl font-semibold leading-10 text-black text-left w-40 mr-64 ml-10">New Arrivals</h3>
-          <Link to="/products/women's%20clothing" className="e-96 flex mt-2">
-            <span className="flex flex-row items-center gap-1 text-base font-medium text-black ml-80 mr-10 w-[150px] align-text-bottom">More Products<ArrowRight/></span>
-          </Link>
+         <Link to="/products/category/women's%20clothing">
+          <span className="flex flex-row items-center gap-1 text-base font-medium text-black ml-80 mr-10 w-[150px] align-text-bottom">More Products<ArrowRight/></span>
+           </Link>
         </div>
         <div className="flex flex-wrap m-4">
           {products.length > 0 ? (

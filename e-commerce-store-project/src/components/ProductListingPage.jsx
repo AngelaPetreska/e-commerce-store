@@ -4,7 +4,7 @@ import NavigationBar from './NavigationBar';
 import Newsletter from './Newsletter';
 import Footer from './Footer';
 import ProductCard from './ProductCard'; 
- 
+
 function ProductListingPage() {
   const [products, setProducts] = useState([]);
   const { category } = useParams();
@@ -27,7 +27,7 @@ function ProductListingPage() {
     <div>
     <NavigationBar />
     <div className="container mx-auto px-4 py-8">
-    <h3 className="my-5 flex flex-row justify-center text-custom-grey font-poppins font-medium text-3xl"> {category.split(' ').map((word, index) => 
+    <h3 className="my-5 pb-5 flex flex-row justify-center text-custom-grey font-poppins font-medium text-3xl"> {category.split(' ').map((word, index) => 
     index === 0 ? word.charAt(0).toUpperCase() + word.slice(1) : word).join(' ')}</h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.map((product) => (
