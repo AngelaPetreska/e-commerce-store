@@ -21,7 +21,10 @@ const SignIn = () => {
       </div>
       <div className="flex-1 bg-white items-center px-8 py-12">
         <div className="mx-auto w-full px-4 py-8">
-          <h2 className="text-3xl md:text-4xl font-medium text-center">Sign In</h2>
+          <h2 className="text-3xl md:text-4xl font-medium text-left">Sign In</h2>
+          <p className="text-custom-grey mt-4 text-left">
+              Don't have an account? <Link to="/" className="text-custom-blue font-semibold">Sign Up</Link>
+            </p>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div>
               <label htmlFor="email" className="block text-sm"></label>
@@ -29,7 +32,7 @@ const SignIn = () => {
                 type="email"
                 id="email"
                 {...register('email')}
-                placeholder="Enter your email"
+                placeholder="Email"
                 className="mt-1 block w-full px-3 py-2 bg-white border-b-2 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 autoComplete="username"
               />
@@ -58,9 +61,6 @@ const SignIn = () => {
             <button type="submit" className="bg-custom-blue hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">
               Sign In
             </button>
-            <p className="text-custom-grey mt-4 text-center">
-              Don't have an account? <Link to="/" className="text-custom-blue font-semibold">Sign Up</Link>
-            </p>
           </form>
         </div>
       </div>

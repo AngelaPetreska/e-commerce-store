@@ -21,49 +21,39 @@ const SignUp = () => {
       </div>
       <div className="flex-1 bg-white items-center px-8 py-12">
         <div className="mx-auto w-full px-4 py-8">
-          <h2 className="text-3xl md:text-4xl font-medium text-center mb-6">Sign Up</h2>
-          <p className="text-gray-500 text-center mb-6">Already have an account? <Link to="/sign-in" className="text-blue-500">Sign In</Link></p>
+          <h2 className="text-3xl md:text-4xl font-medium text-left mb-6">Sign Up</h2>
+          <p className="text-gray-500 text-left mb-6">Already have an account? <Link to="/sign-in" className="text-custom-blue font-medium">Sign In</Link></p>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div>
-              <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>   
-
+              <label htmlFor="username" className="block text-sm font-medium text-gray-700"></label>
               <input
                 type="text"
                 id="username"
-                {...register('username')}   
-
-                placeholder="Enter your username"
-                className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500   
- focus:border-indigo-500"   
-
+                {...register('username')}
+                placeholder="Username"
+                className="mt-1 block w-full px-3 py-2 bg-white border-b-2 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 autoComplete="username"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email address</label>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700"></label>
               <input
                 type="email"
-                id="email"   
-
+                id="email"
                 {...register('email')}
-                placeholder="Enter your email address"
-                className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"   
-
+                placeholder="Email"
+                className="mt-1 block w-full px-3 py-2 bg-white border-b-2 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 autoComplete="email"
               />
             </div>
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700"></label>
               <input
-                type="password"   
-
+                type="password"
                 id="password"
-                {...register('password')}   
-
-                placeholder="Enter your password"
-                className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500   
- focus:border-indigo-500"   
-
+                {...register('password')}
+                placeholder="Password"
+                className="mt-1 block w-full px-3 py-2 bg-white border-b-2 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 autoComplete="new-password"
               />
             </div>
@@ -74,8 +64,8 @@ const SignUp = () => {
                 {...register('terms', { required: true })}
                 className="mr-2 border border-gray-300 rounded-md shadow-sm"
               />
-              <label htmlFor="terms" className="text-sm text-gray-700">
-                I agree to the <a href="#" className="text-blue-500">Terms of Service</a> and <a href="#" className="text-blue-500">Privacy Policy</a>
+              <label htmlFor="terms" className="text-normal text-gray-700">
+                I agree to the <a href="#" className="text-custom-black font-medium">Privacy Policy</a> and <a href="#" className="text-custom-black font-medium">Terms of Use</a>
               </label>
               {errors.terms && <p className="text-red-500 text-sm">Please agree to the terms and conditions.</p>}
             </div>
