@@ -3,13 +3,13 @@
 ## This is my final project for the Front-end Development academy at Change Academy.
 
 ## The project is built using: 
-# JavaScript,
-# React.js (with Vite), 
-# Zustand for state management and local authentication, 
-# Tailwind CSS for styling,
-# React Router for routing,
-# API requests using the Fetch API (Reference: https://fakestoreapi.com/docs),
-# GitHub for version control.
+- JavaScript,
+- React.js (with Vite), 
+- Zustand for state management and local authentication, 
+- Tailwind CSS for styling,
+- React Router for routing,
+- API requests using the Fetch API (Reference: https://fakestoreapi.com/docs),
+- GitHub for version control.
 
 ## The project is deployed on Netlify.
 
