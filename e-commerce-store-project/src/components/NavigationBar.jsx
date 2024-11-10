@@ -5,7 +5,6 @@ import UserIcon from '../components/icons/UserIcon';
 import CartIcon from '../components/icons/CartIcon';
 import useCartStore from '../store/cartStore';
 import Badge from '../components/Badge';
-import SearchMenu from '../components/SearchMenu';
 
 async function getCategories() {
   const response = await fetch('https://fakestoreapi.com/products/categories');
