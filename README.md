@@ -11,7 +11,7 @@
 - API requests using the Fetch API (Reference: https://fakestoreapi.com/docs),
 - GitHub for version control.
 
-## The project is deployed on Netlify.
+## The project is deployed on Netlify. (https://urban-nest-e-store.netlify.app/)
 
 ## Key features of the application:
 
