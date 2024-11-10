@@ -26,7 +26,7 @@ function ContactUsPage() {
     const navigate = useNavigate();
   
     const handleButtonClick = () => {
-      navigate('/'); 
+      navigate('/home-page'); 
     };
 
   return (
