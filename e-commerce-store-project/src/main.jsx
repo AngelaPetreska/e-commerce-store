@@ -10,10 +10,20 @@ import MyAccountPage from "./components/MyAccountPage.jsx";
 import CheckoutPage from './components/CheckoutPage.jsx';
 import CheckoutDetailsPage from "./components/CheckoutDetailsPage.jsx";
 import OrderCompletePage from "./components/OrderCompletePage.jsx";
+import SignIn from "./components/SignIn.jsx";
+import SignUp from "./components/SignUp.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <SignUp />,
+  },
+  {
+    path: "/sign-in",
+    element: <SignIn />,
+  },
+  {
+    path: "/home-page",
     element: <HomePage />,
   },
   {
