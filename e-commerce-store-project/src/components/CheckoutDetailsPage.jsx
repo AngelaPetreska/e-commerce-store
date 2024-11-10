@@ -31,20 +31,28 @@ function CheckoutDetailsPage() {
 
   return (
     <div>
-      <div className="flex flex-col mx-16">
+      <div className="flex flex-col">
         <NavigationBar />
-        <p className="font-poppins text-4xl font-medium leading-tight tracking-tighter text-center">Check Out</p>
+        <p className="font-poppins text-4xl font-medium leading-tight tracking-tighter text-center">
+          Check Out
+        </p>
         <NavigationCheckoutBar activeStep={activeStep} steps={steps} />
 
-        <div className="flex mt-8">
-          <div className="flex-1 mr-8">
+        <div className="flex flex-col lg:flex-row mt-8 gap-6">
+          {/* Mobile View: Order Summary first */}
+          <div className="lg:hidden">
+            <OrderSummary />
+          </div>
+
+          {/* Left Section - Contact Form, Payment Method, Shipping Address */}
+          <div className="flex-1 lg:mr-8">
             <ContactForm />
             <div className="mt-8">
               <PaymentMethod onSelect={handlePaymentMethodSelect} />
               <div className="mt-8">
                 <ShippingAddressForm />
                 <button
-                  className="items-center bg-custom-blue hover:bg-blue-700 text-white w-full h-12 rounded-md mt-4 mb-20"
+                  className="items-center bg-custom-blue hover:bg-blue-700 text-white w-full h-12 rounded-md mt-4 mb-8"
                   onClick={handlePlaceOrder}
                 >
                   Place Order
@@ -52,7 +60,9 @@ function CheckoutDetailsPage() {
               </div>
             </div>
           </div>
-          <div>
+
+          {/* Right Section - Order Summary (for larger screens) */}
+          <div className="lg:w-[350px] hidden lg:block">
             <OrderSummary />
           </div>
         </div>

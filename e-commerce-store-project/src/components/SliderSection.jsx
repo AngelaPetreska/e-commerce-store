@@ -55,10 +55,10 @@ function SliderSection() {
           </div>
         ))}
       </div>
-      <div className="flex flex-row justify-between gap-x-24 h-fit w-fit max-w-full">
-        <p className="font-poppins font-medium text-6xl text-left leading-74 text-custom-black">Purely Distinct <span className='text-custom-blue'>/</span> Purely Superior<span className='text-custom-blue'>.</span></p>
-        <p className="font-popins font-semibold text-xl text-right leading-6 text-custom-black"><span className='text-custom-blue'>Purely Distinct</span> is a gift and decorations store based in <span className='text-custom-blue'>Struga, Macedonia.</span> Established in 2024.</p>
-      </div>
+      <div className="flex flex-col gap-y-4 h-fit w-fit max-w-full">
+  <p className="font-poppins font-medium text-3xl text-center leading-74 text-custom-black">Purely Distinct <span className='text-custom-blue'>/</span> Purely Superior<span className='text-custom-blue'>.</span></p>
+  <p className="font-popins font-semibold text-base text-center leading-6 text-custom-black"><span className='text-custom-blue'>Purely Distinct</span> is a gift and decorations store based in <span className='text-custom-blue'>Struga, Macedonia.</span> Established in 2024.</p>
+</div>
     </div>
   );
 }
