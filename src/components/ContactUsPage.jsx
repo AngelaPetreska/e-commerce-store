@@ -52,7 +52,7 @@ function ContactUsPage() {
         <p>Established in 2024, by Nikola Ristoski.</p>
         <p>Our dedicated customer service team is always ready to support you 24/7.</p>
         </div>
-        <Link to="/">
+        <Link to="/home-page">
         <button className="mt-5 px-3 py-3 flex flex-row gap-1 items-center bg-[#F3F5F7] hover:bg-blue-700 rounded-md text-custom-black font-medium font-inter text-base leading-snug tracking-tighter">Shop Now <ArrowRight/></button>
         </Link>
       </div>
