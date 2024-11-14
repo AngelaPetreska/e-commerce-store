@@ -8,7 +8,6 @@ function App() {
   return (
     <>
       <div><h1>UrbanNest</h1></div>
-      
     </>
   )
 }

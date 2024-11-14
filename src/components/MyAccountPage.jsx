@@ -33,7 +33,7 @@ function AccountDetails() {
     <div className="bg-gray-100 p-8 rounded shadow-md flex flex-col md:flex-row md:space-x-4">
       
       <div className="md:w-1/2">
-        {/* Add the left-side content here, including the image and navigation links */}
+        {/* left-side content */}
         <div className="flex flex-col items-center">
           <Avatar className="mt-5 w-24 h-24 rounded-full mb-4"/>
           <h2 className="mb-10 font-inter text-xl font-bold leading-8 text-left">Sophia Collins</h2>
